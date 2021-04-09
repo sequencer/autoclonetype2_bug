@@ -37,3 +37,20 @@ So generally, this repo is the fast and cleanest way to start your Chisel projec
 
 ## Always keep update-to-date
 You can use this template and start your own job by appending commits on it. GitHub Action will automaticlly bumping all dependencies, you can merge or rebase `sequencer/master` to your branch.
+
+# autoclonetype2 bug
+```
+# init environment
+pacman -S riscv64-elf-gcc riscv64-elf-newlib
+make init
+make patch
+# failed run
+cd dependencies/chisel3
+git bisect start
+git bisect bad
+# sucess run before autoclonetype2
+git checkout 9ea57e03
+git bisect good
+# start bisect
+git bisect run ../../bisect.sh
+```
