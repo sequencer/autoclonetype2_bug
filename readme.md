@@ -54,3 +54,21 @@ git bisect good
 # start bisect
 git bisect run ../../bisect.sh
 ```
+
+Result:
+```
+26461d500f402310cb3adf914b636be3a3a8e442 is the first bad commit
+commit 26461d500f402310cb3adf914b636be3a3a8e442
+Author: Jack Koenig <koenig@sifive.com>
+Date:   Tue Mar 23 14:54:57 2021 -0700
+
+    Make plugin autoclonetype always on (#1826)
+
+    Co-authored-by: mergify[bot] <37929162+mergify[bot]@users.noreply.github.com>
+
+ build.sbt                                           |  2 --
+ .../chisel3/internal/plugin/ChiselPlugin.scala      |  6 ++++--
+ src/test/scala/chiselTests/AutoClonetypeSpec.scala  | 21 ++++++++++-----------
+ 3 files changed, 14 insertions(+), 15 deletions(-)
+bisect run success
+```
